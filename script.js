@@ -88,7 +88,7 @@ function initNavigation() {
     // Mobile menu toggle
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+        navToggle.classList.toggle('active'); // This line enables the CSS for the X animation
     });
 
     // Close mobile menu when clicking on links
