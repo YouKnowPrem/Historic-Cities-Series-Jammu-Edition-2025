@@ -123,18 +123,20 @@
         </div>
     </nav>
 
-    <!-- 
-    // START: BG Music Functionality Removed (Commented Out) as per user request (Requirement 2)
+    <!-- START: BG Music Functionality Reintroduced with New Audio Tracks -->
     <button id="musicToggle" class="music-toggle" aria-label="Toggle background music">
-        🔇
+        <!-- Using a speaker icon (HTML entity &#128266; muted &#128263;) initially muted -->
+        &#128263;
     </button>
 
-    <audio id="backgroundMusic" loop preload="auto">
-        <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.mp3" type="audio/mpeg">
-        <source src="https://www.soundjay.com/misc/sounds/temple-bell-1.wav" type="audio/wav">
+    <!-- Audio elements for the two tracks -->
+    <audio id="backgroundMusic1" preload="auto" data-track-id="1">
+        <source src="jammu-da-shahar_3rdcut.mp3" type="audio/mpeg">
     </audio>
-    // END: BG Music Functionality Removed (Commented Out)
-    -->
+    <audio id="backgroundMusic2" preload="auto" data-track-id="2">
+        <source src="jammu-da-shahar_4thcut.mp3" type="audio/mpeg">
+    </audio>
+    <!-- END: BG Music Functionality -->
 
     <section id="home" class="hero">
         <!-- Placeholder image URL for hero background, using relevant text for context -->
@@ -739,6 +741,7 @@
             <div class="credits-section">
                 <p class="credits-text">Website Curated and Engineered by Prem Singh</p>
                 <p class="email-text"> Contact us at: historiccitiesjammu2025@gmail.com</p>
+                <p class="cridits">Music Credit to :</p>
             </div>
         </div>
     </section>
@@ -851,8 +854,3 @@
 </body>
 
 </html>
-
-
-
-
-
