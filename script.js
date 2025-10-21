@@ -15,6 +15,7 @@ function initializeWebsite() {
     initScrollEffects();
     initAnimations();
     initFormHandling();
+    initCarousel(); // Initialize the new carousel
     initBackgroundMusic(); // # Re-enabled and updated
     console.log('Website initialized successfully');
 }
@@ -180,7 +181,7 @@ function initAnimations() {
 
     // Apply fade animation to key structural elements only (less distracting/fewer animations)
     const animatedElements = document.querySelectorAll(
-        '.walk-card, .session-card, .team-member, .about-content, .section-header'
+        '.walk-card, .session-card, .team-member, .about-content, .section-header, .carousel-container'
     );
     
     // Reduce the stagger effect duration for quicker load
@@ -213,6 +214,63 @@ function initAnimations() {
 // =======================================================
 function initFormHandling() {
     // Logic removed as form is not present, but function kept to prevent errors.
+}
+
+// =======================================================
+// 6. IMAGE CAROUSEL
+// =======================================================
+function initCarousel() {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return; // Exit if carousel is not on the page
+
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    let currentIndex = 0;
+    let autoPlayInterval = null;
+
+    const moveToSlide = (targetIndex) => {
+        // Check for bounds
+        if (targetIndex >= slides.length) {
+            targetIndex = 0;
+        } else if (targetIndex < 0) {
+            targetIndex = slides.length - 1;
+        }
+
+        track.style.transform = 'translateX(-' + 100 * targetIndex + '%)';
+        currentIndex = targetIndex;
+    };
+
+    const startAutoPlay = () => {
+        stopAutoPlay(); // Prevent multiple intervals
+        autoPlayInterval = setInterval(() => {
+            moveToSlide(currentIndex + 1);
+        }, 5000); // Change slide every 5 seconds
+    };
+
+    const stopAutoPlay = () => {
+        clearInterval(autoPlayInterval);
+    };
+    
+    // Event listener for the next button
+    nextButton.addEventListener('click', () => {
+        moveToSlide(currentIndex + 1);
+        startAutoPlay(); // Restart autoplay on manual navigation
+    });
+
+    // Event listener for the previous button
+    prevButton.addEventListener('click', () => {
+        moveToSlide(currentIndex - 1);
+        startAutoPlay(); // Restart autoplay on manual navigation
+    });
+
+    // Pause autoplay on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+    carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+    // Initialize
+    startAutoPlay();
 }
 
 // =======================================================
@@ -479,3 +537,4 @@ if ('performance' in window) {
         console.log(`Page loaded in ${loadTime}ms`);
     });
 }
+
