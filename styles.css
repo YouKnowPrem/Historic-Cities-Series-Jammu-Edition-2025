@@ -1093,6 +1093,7 @@ body.loading {
     overflow: hidden;
     border-radius: 15px;
     box-shadow: var(--shadow-heavy);
+    padding-bottom: 80px; /* Add space for buttons below */
 }
 
 .carousel-track {
@@ -1136,8 +1137,7 @@ body.loading {
 
 .carousel-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 15px; /* Position at the bottom */
     background-color: rgba(139, 69, 19, 0.7);
     border: none;
     color: white;
@@ -1159,11 +1159,13 @@ body.loading {
 }
 
 .carousel-button.prev {
-    left: 15px;
+    left: 50%;
+    transform: translateX(-120%);
 }
 
 .carousel-button.next {
-    right: 15px;
+    left: 50%;
+    transform: translateX(20%);
 }
 
 /* 12. DOGRI SLOGAN BLOCK */
