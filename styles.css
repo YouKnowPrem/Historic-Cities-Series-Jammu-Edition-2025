@@ -1080,7 +1080,93 @@ body.loading {
     line-height: 1.6;
 }
 
-/* 11. DOGRI SLOGAN BLOCK */
+/* 11. EVENT GALLERY & CAROUSEL */
+.gallery-section {
+    padding: var(--section-padding);
+    background: var(--warm-cream);
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--shadow-heavy);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+    height: 500px; /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--text-light);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity var(--transition-medium), transform var(--transition-medium);
+}
+
+.carousel-slide:hover .slide-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(139, 69, 19, 0.7);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: var(--deep-brown);
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+/* 12. DOGRI SLOGAN BLOCK */
 .dogri-slogan-section {
     background: var(--dark-brown);
     padding: 4rem 0;
@@ -1542,3 +1628,4 @@ body.loading {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
