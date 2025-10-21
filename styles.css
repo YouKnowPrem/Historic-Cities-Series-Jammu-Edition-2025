@@ -1491,6 +1491,17 @@ body.loading {
         gap: 1.5rem;
         max-width: 500px;
     }
+    
+    /* Carousel mobile optimization */
+    .carousel-slide img {
+        height: 300px; /* Reduced height for better landscape viewing on mobile */
+    }
+
+    .carousel-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
 
     /* Slogan adjustments */
     .dogri-slogan,
@@ -1587,6 +1598,11 @@ body.loading {
 
     .hero-sub {
         font-size: 1.5rem;
+    }
+    
+    /* Carousel further optimization for small screens */
+    .carousel-slide img {
+        height: 240px;
     }
 
     .experts-grid {
